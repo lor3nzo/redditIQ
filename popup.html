@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AI Quality Filter</title>
+  <style>
+    body { font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 12px; width: 280px; }
+    .row { display:flex; align-items:center; justify-content:space-between; margin: 8px 0; }
+    input[type="range"] { width: 100%; }
+    label { font-weight: 600; }
+    small { color: #555; }
+    #detectedUser { margin-top: 10px; font-size: 13px; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <label>Enabled</label>
+    <input type="checkbox" id="enabled">
+  </div>
+
+  <div class="row" style="flex-direction:column; align-items:stretch;">
+    <label>Minimum score: <span id="thresholdVal">60</span></label>
+    <input type="range" id="threshold" min="0" max="100" step="5">
+    <small>Raise to show only higher-signal posts.</small>
+  </div>
+
+  <div class="row">
+    <label>Require flair</label>
+    <input type="checkbox" id="requireSubFlair">
+  </div>
+
+  <div class="row">
+    <label>Dim instead of hide</label>
+    <input type="checkbox" id="dimInsteadOfHide">
+  </div>
+
+  <div class="row" style="flex-direction:column; align-items:stretch;">
+    <label>Min title length</label>
+    <input type="number" id="minTitleChars" min="0" max="200" step="5">
+  </div>
+
+  <div class="row" style="flex-direction:column; align-items:stretch;">
+    <label>Manual username override (optional):</label>
+    <input type="text" id="myUsername" placeholder="u/YourName">
+    <small>If blank, extension will auto-detect your logged-in account.</small>
+  </div>
+
+  <div id="detectedUser">Detected user: (unknown)</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
