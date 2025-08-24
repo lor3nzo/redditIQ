@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Reddit AI Quality Filter",
-  "description": "Scores Reddit posts for discussion quality and hides low-quality ones.",
-  "version": "0.2.1",
+  "description": "Scores Reddit posts and comments for discussion quality; hides or dims low-quality items.",
+  "version": "0.3.0",
   "action": { "default_popup": "popup.html" },
   "permissions": ["storage", "scripting", "activeTab"],
   "host_permissions": [

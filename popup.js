@@ -33,6 +33,13 @@ chrome.storage.sync.get(DEFAULTS, (v) => {
   els.myUsername.value = v.myUsername || "";
 });
 
+// Also try to populate detected user from local storage on open
+chrome.storage.local.get({ aiqCurrentUser: null }, (v) => {
+  if (v && v.aiqCurrentUser) {
+    els.detectedUser.textContent = `Detected user: ${v.aiqCurrentUser}`;
+  }
+});
+
 // Event listeners
 els.enabled.addEventListener("change", () => save({ enabled: els.enabled.checked }));
 els.requireSubFlair.addEventListener("change", () => save({ requireSubFlair: els.requireSubFlair.checked }));
